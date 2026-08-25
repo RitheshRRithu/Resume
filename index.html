@@ -1,0 +1,515 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Rithesh R — Junior Java Developer</title>
+<meta name="description" content="Rithesh R — Junior Java Developer. Core Java, Spring Boot, Angular & SQL. Projects: Pharmacy Mart, Smart Summarize, Fishery Management System." />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%2317130F'/%3E%3Ctext x='50' y='68' font-size='52' font-family='Georgia,serif' fill='%23E3A857' text-anchor='middle'%3ER%3C/text%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#17130F;
+    --bg-alt:#1D1710;
+    --card:#231C14;
+    --card-2:#2A2116;
+    --accent:#E3A857;
+    --accent-dim:#B98A46;
+    --sage:#8FBF9F;
+    --cream:#F3EAD9;
+    --muted:#A6987F;
+    --line: rgba(243,234,217,0.10);
+    --line-strong: rgba(243,234,217,0.18);
+    --maxw: 1120px;
+    --radius: 14px;
+    --font-display: 'Fraunces', Georgia, serif;
+    --font-body: 'Inter', ui-sans-serif, system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    background:
+      radial-gradient(1100px 560px at 82% -10%, rgba(227,168,87,0.10), transparent 60%),
+      radial-gradient(800px 500px at -10% 30%, rgba(143,191,159,0.05), transparent 55%),
+      var(--bg);
+    color:var(--cream);
+    font-family:var(--font-body);
+    -webkit-font-smoothing:antialiased;
+    line-height:1.6;
+  }
+  a{color:inherit}
+  img{max-width:100%;display:block}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 28px}
+ 
+  /* Focus visibility */
+  a:focus-visible, button:focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:4px}
+ 
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important}
+  }
+ 
+  /* ---------- Header ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(23,19,15,0.82);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .headbar{ display:flex; align-items:center; justify-content:space-between; padding:16px 28px; max-width:var(--maxw); margin:0 auto}
+  .brand{display:flex; align-items:center; gap:12px; text-decoration:none}
+  .brand .mark{
+    width:38px;height:38px;border-radius:9px;
+    background:linear-gradient(155deg,var(--accent),#9C6B32);
+    display:flex;align-items:center;justify-content:center;
+    font-family:var(--font-display); font-weight:700; color:#1a1409; font-size:17px;
+    box-shadow:0 3px 10px rgba(227,168,87,0.25);
+  }
+  .brand .who{font-family:var(--font-display); font-weight:600; font-size:16.5px; color:var(--cream)}
+  .brand .who small{display:block; font-family:var(--font-mono); font-size:10.5px; color:var(--muted); font-weight:400; letter-spacing:.03em}
+  nav.links{display:flex; gap:26px; font-size:14px}
+  nav.links a{ text-decoration:none; color:var(--muted); position:relative; padding:4px 0}
+  nav.links a:hover{color:var(--cream)}
+  .btn-resume{
+    font-family:var(--font-mono); font-size:12.5px; font-weight:600;
+    background:var(--accent); color:#1a1409; padding:9px 16px; border-radius:8px;
+    text-decoration:none; white-space:nowrap; letter-spacing:.02em;
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .btn-resume:hover{transform:translateY(-1px); box-shadow:0 6px 18px rgba(227,168,87,0.28)}
+  .nav-toggle{display:none}
+ 
+  @media (max-width:800px){
+    nav.links{display:none}
+  }
+ 
+  /* ---------- Hero ---------- */
+  .hero{ padding:76px 0 60px; }
+  .hero-grid{ display:grid; grid-template-columns:1.05fr 0.95fr; gap:48px; align-items:center }
+  @media (max-width:900px){ .hero-grid{grid-template-columns:1fr} }
+ 
+  .eyebrow{
+    font-family:var(--font-mono); font-size:12.5px; color:var(--sage);
+    letter-spacing:.06em; display:flex; align-items:center; gap:8px; margin-bottom:18px;
+  }
+  .eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--sage); box-shadow:0 0 0 3px rgba(143,191,159,.18)}
+ 
+  .hero h1{
+    font-family:var(--font-display); font-weight:600; font-size:clamp(38px,5.4vw,58px);
+    line-height:1.04; margin:0 0 14px; letter-spacing:-0.01em;
+  }
+  .hero h1 .accent{color:var(--accent); font-style:italic; font-weight:500}
+  .hero p.lede{ color:var(--muted); font-size:17px; max-width:52ch; margin:0 0 28px}
+  .hero .cta{display:flex; gap:14px; flex-wrap:wrap}
+  .btn-primary{
+    font-family:var(--font-mono); font-weight:600; font-size:13.5px;
+    background:var(--accent); color:#1a1409; padding:13px 22px; border-radius:9px;
+    text-decoration:none; transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .btn-primary:hover{transform:translateY(-2px); box-shadow:0 10px 24px rgba(227,168,87,.3)}
+  .btn-ghost{
+    font-family:var(--font-mono); font-weight:600; font-size:13.5px;
+    border:1px solid var(--line-strong); color:var(--cream); padding:12px 22px; border-radius:9px;
+    text-decoration:none; transition:border-color .15s ease, background .15s ease;
+  }
+  .btn-ghost:hover{border-color:var(--accent); background:rgba(227,168,87,.06)}
+ 
+  /* Terminal signature element */
+  .terminal{
+    background:var(--card); border:1px solid var(--line-strong); border-radius:var(--radius);
+    box-shadow:0 24px 60px rgba(0,0,0,0.35);
+    overflow:hidden;
+  }
+  .term-bar{ display:flex; align-items:center; gap:8px; padding:12px 16px; background:var(--card-2); border-bottom:1px solid var(--line)}
+  .term-bar span{width:10px;height:10px;border-radius:50%}
+  .term-bar .r{background:#E0645A}
+  .term-bar .y{background:#E3B157}
+  .term-bar .g{background:#79C08C}
+  .term-bar .title{margin-left:8px; font-family:var(--font-mono); font-size:11.5px; color:var(--muted)}
+  .term-body{ padding:22px 20px 26px; font-family:var(--font-mono); font-size:13.5px; color:var(--cream); min-height:230px}
+  .term-body .line{ margin:0 0 10px; white-space:pre-wrap}
+  .term-body .prompt{color:var(--sage)}
+  .term-body .path{color:var(--accent)}
+  .term-body .out{color:var(--muted)}
+  .caret{display:inline-block; width:7px; height:15px; background:var(--accent); margin-left:2px; vertical-align:-2px; animation:blink 1s steps(1) infinite}
+  @keyframes blink{50%{opacity:0}}
+ 
+  /* ---------- Sections shared ---------- */
+  section{padding:64px 0}
+  .section-head{ display:flex; align-items:baseline; gap:14px; margin-bottom:34px}
+  .section-head .num{font-family:var(--font-mono); color:var(--accent-dim); font-size:13px}
+  .section-head h2{font-family:var(--font-display); font-weight:600; font-size:28px; margin:0}
+  .section-head .rule{flex:1; height:1px; background:var(--line)}
+  .reveal{ opacity:1; transform:none; transition:opacity .6s ease, transform .6s ease }
+  html.js-ready .reveal{ opacity:0; transform:translateY(16px) }
+  html.js-ready .reveal.in{ opacity:1; transform:none }
+ 
+  /* About */
+  .about-grid{display:grid; grid-template-columns:1.3fr 1fr; gap:40px}
+  @media (max-width:800px){ .about-grid{grid-template-columns:1fr} }
+  .about-grid p{color:var(--muted); font-size:15.5px; margin:0 0 14px}
+  .facts{ display:grid; grid-template-columns:1fr 1fr; gap:14px }
+  .fact{ background:var(--card); border:1px solid var(--line); border-radius:10px; padding:14px 16px}
+  .fact .k{font-family:var(--font-mono); font-size:10.5px; color:var(--muted); text-transform:uppercase; letter-spacing:.06em; margin-bottom:4px}
+  .fact .v{font-size:14.5px; color:var(--cream)}
+ 
+  /* Skills */
+  .skill-block{margin-bottom:22px}
+  .skill-block h4{font-family:var(--font-mono); font-size:12px; color:var(--sage); text-transform:uppercase; letter-spacing:.06em; margin:0 0 12px}
+  .chips{display:flex; flex-wrap:wrap; gap:9px}
+  .chip{
+    font-family:var(--font-mono); font-size:13px; color:var(--cream);
+    background:var(--card); border:1px solid var(--line-strong); border-radius:7px; padding:7px 12px;
+    transition:border-color .15s ease, transform .15s ease;
+  }
+  .chip:hover{border-color:var(--accent); transform:translateY(-1px)}
+ 
+  /* Timeline */
+  .timeline{border-left:1px solid var(--line-strong); padding-left:28px; display:flex; flex-direction:column; gap:34px}
+  .tl-item{position:relative}
+  .tl-item::before{
+    content:""; position:absolute; left:-33.5px; top:5px; width:11px; height:11px; border-radius:50%;
+    background:var(--bg); border:2px solid var(--accent);
+  }
+  .tl-head{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; margin-bottom:2px}
+  .tl-head h3{font-family:var(--font-display); font-weight:600; font-size:19px; margin:0}
+  .tl-head .when{font-family:var(--font-mono); font-size:12.5px; color:var(--accent-dim); white-space:nowrap}
+  .tl-item .co{color:var(--muted); font-size:14px; font-style:italic; margin:0 0 10px}
+  .tl-item ul{margin:0; padding-left:18px; color:var(--cream); font-size:14.5px}
+  .tl-item li{margin-bottom:6px}
+ 
+  /* Projects */
+  .projects-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:20px}
+  .project{
+    background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:22px;
+    display:flex; flex-direction:column; transition:transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+  }
+  .project:hover{transform:translateY(-4px); border-color:var(--line-strong); box-shadow:0 18px 40px rgba(0,0,0,0.3)}
+  .project .ptype{font-family:var(--font-mono); font-size:11px; color:var(--sage); text-transform:uppercase; letter-spacing:.06em; margin-bottom:10px}
+  .project h3{font-family:var(--font-display); font-size:19px; margin:0 0 10px; font-weight:600}
+  .project p{color:var(--muted); font-size:14.5px; margin:0 0 16px; flex:1}
+  .project .tags{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:16px}
+  .project .tags span{font-family:var(--font-mono); font-size:11px; color:var(--muted); border:1px solid var(--line); padding:4px 8px; border-radius:6px}
+  .project .link{font-family:var(--font-mono); font-size:12.5px; color:var(--accent); text-decoration:none; font-weight:600}
+  .project .link:hover{text-decoration:underline}
+ 
+  /* Education / certs */
+  .two-col{display:grid; grid-template-columns:1fr 1fr; gap:40px}
+  @media (max-width:800px){ .two-col{grid-template-columns:1fr} }
+  .edu-item{margin-bottom:20px}
+  .edu-item h4{font-family:var(--font-display); font-size:16.5px; margin:0 0 2px; font-weight:600}
+  .edu-item .when{font-family:var(--font-mono); font-size:12px; color:var(--accent-dim)}
+  .edu-item .co{color:var(--muted); font-size:14px; font-style:italic; margin-top:2px}
+  .cert-list{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:12px}
+  .cert-list li{
+    display:flex; align-items:baseline; gap:10px; font-size:14.5px; color:var(--cream);
+    border-bottom:1px dashed var(--line); padding-bottom:12px;
+  }
+  .cert-list li:last-child{border-bottom:none}
+  .cert-list .yr{font-family:var(--font-mono); color:var(--muted); font-size:12.5px; margin-left:auto}
+ 
+  /* Beyond the code */
+  .beyond{display:flex; flex-wrap:wrap; gap:12px}
+  .beyond span{
+    font-family:var(--font-mono); font-size:13px; color:var(--muted);
+    background:var(--card); border:1px solid var(--line); border-radius:20px; padding:8px 16px;
+  }
+ 
+  /* Contact / footer */
+  .contact-card{
+    background:linear-gradient(160deg, var(--card), var(--card-2));
+    border:1px solid var(--line-strong); border-radius:20px; padding:44px;
+    display:grid; grid-template-columns:1.2fr 1fr; gap:32px; align-items:center;
+  }
+  @media (max-width:800px){ .contact-card{grid-template-columns:1fr; padding:30px} }
+  .contact-card h2{font-family:var(--font-display); font-size:30px; margin:0 0 10px; font-weight:600}
+  .contact-card p{color:var(--muted); margin:0 0 20px; max-width:44ch}
+  .contact-links{display:flex; flex-direction:column; gap:12px; font-family:var(--font-mono); font-size:14px}
+  .contact-links a{ text-decoration:none; color:var(--cream); display:flex; align-items:center; gap:10px}
+  .contact-links a:hover{color:var(--accent)}
+  .contact-links .lbl{color:var(--muted); min-width:70px; display:inline-block}
+ 
+  footer{padding:34px 0 50px; text-align:center; color:var(--muted); font-size:13px; font-family:var(--font-mono)}
+  footer a{color:var(--accent); text-decoration:none}
+</style>
+</head>
+<body>
+ 
+<header>
+  <div class="headbar">
+    <a class="brand" href="#top">
+      <div class="mark">R</div>
+      <div class="who">Rithesh R<small>JUNIOR JAVA DEVELOPER</small></div>
+    </a>
+    <nav class="links">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="btn-resume" href="Rithesh_R_Resume.pdf" download>&#8595; Resume</a>
+  </div>
+</header>
+ 
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow"><span class="dot"></span>OPEN TO WORK &middot; AVAILABLE WITHIN 30 DAYS</div>
+        <h1>Building reliable software,<br> one <span class="accent">compile</span> at a time.</h1>
+        <p class="lede">I'm Rithesh — a Junior Java Developer from Karnataka, India. I build full-stack applications with Core Java, Spring Boot, Angular, and SQL, and I like the discipline of getting the backend logic exactly right.</p>
+        <div class="cta">
+          <a class="btn-primary" href="Rithesh_R_Resume.pdf" download>Download Resume</a>
+          <a class="btn-ghost" href="#projects">View Projects</a>
+        </div>
+      </div>
+ 
+      <div class="terminal" aria-hidden="false">
+        <div class="term-bar">
+          <span class="r"></span><span class="y"></span><span class="g"></span>
+          <span class="title">rithesh@java-dev: ~</span>
+        </div>
+        <div class="term-body" id="termBody"></div>
+      </div>
+    </div>
+  </section>
+ 
+  <section id="about">
+    <div class="wrap">
+      <div class="section-head reveal"><span class="num">01</span><h2>About</h2><span class="rule"></span></div>
+      <div class="about-grid reveal">
+        <div>
+          <p>I'm a Computer Science engineering graduate with two full-stack internships under my belt, where I worked across the stack — from Spring Boot REST APIs down to the SQL tables backing them, and Angular front ends on top. I like projects with a clear real-world use: a pharmacy that needs online ordering, fishers who need a simple way to log their catch.</p>
+          <p>Outside of internships, I've kept building — a Python NLP tool to summarize long documents, and a couple of Java-backed systems designed from scratch, schema included. I'm now looking for a Junior Java Developer role where I can keep growing under a strong engineering team.</p>
+        </div>
+        <div class="facts">
+          <div class="fact"><div class="k">Location</div><div class="v">Mangaluru, Karnataka, India</div></div>
+          <div class="fact"><div class="k">Open to</div><div class="v">Remote / Hybrid / Bangalore</div></div>
+          <div class="fact"><div class="k">Languages</div><div class="v">English, Kannada, Hindi, Tulu</div></div>
+          <div class="fact"><div class="k">Education</div><div class="v">B.E. Computer Science, 2023</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+ 
+  <section id="skills">
+    <div class="wrap">
+      <div class="section-head reveal"><span class="num">02</span><h2>Skills</h2><span class="rule"></span></div>
+      <div class="reveal">
+        <div class="skill-block">
+          <h4>Languages</h4>
+          <div class="chips">
+            <span class="chip">Java</span><span class="chip">Python</span><span class="chip">JavaScript</span><span class="chip">SQL</span>
+          </div>
+        </div>
+        <div class="skill-block">
+          <h4>Frameworks &amp; Libraries</h4>
+          <div class="chips">
+            <span class="chip">Spring Boot</span><span class="chip">Angular</span><span class="chip">AngularJS</span><span class="chip">REST APIs</span><span class="chip">spaCy (NLP)</span>
+          </div>
+        </div>
+        <div class="skill-block">
+          <h4>Databases &amp; Cloud</h4>
+          <div class="chips">
+            <span class="chip">MySQL</span><span class="chip">SQL Server</span><span class="chip">Oracle SQL</span><span class="chip">AWS</span><span class="chip">Azure</span>
+          </div>
+        </div>
+        <div class="skill-block">
+          <h4>Tools &amp; Practices</h4>
+          <div class="chips">
+            <span class="chip">Git</span><span class="chip">HTML/CSS</span><span class="chip">OOP</span><span class="chip">Agile / Scrum</span><span class="chip">Data Structures &amp; Algorithms</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+ 
+  <section id="experience">
+    <div class="wrap">
+      <div class="section-head reveal"><span class="num">03</span><h2>Internship Experience</h2><span class="rule"></span></div>
+      <div class="timeline reveal">
+        <div class="tl-item">
+          <div class="tl-head"><h3>Full Stack Java Web Developer</h3><span class="when">Feb 2023 – Mar 2023</span></div>
+          <p class="co">BB Leads, Mangaluru</p>
+          <ul>
+            <li>Built an end-to-end Pharmacy Management System using Spring Boot and AngularJS.</li>
+            <li>Developed and integrated RESTful APIs for inventory, billing, and user-management modules.</li>
+            <li>Worked in a cross-functional team following Agile sprint methodology.</li>
+          </ul>
+        </div>
+        <div class="tl-item">
+          <div class="tl-head"><h3>Full Stack Java Developer</h3><span class="when">Feb 2019 – Sep 2019</span></div>
+          <p class="co">IITC, Mangaluru</p>
+          <ul>
+            <li>Built scalable, reliable front-end applications using the Angular framework.</li>
+            <li>Participated in the full software development lifecycle — design, code, test, deploy.</li>
+            <li>Strengthened Core Java and OOP fundamentals under senior developer mentorship.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+ 
+  <section id="projects">
+    <div class="wrap">
+      <div class="section-head reveal"><span class="num">04</span><h2>Projects</h2><span class="rule"></span></div>
+      <div class="projects-grid reveal">
+        <div class="project">
+          <div class="ptype">Java Full-Stack</div>
+          <h3>Pharmacy Mart</h3>
+          <p>An e-commerce site for pharmacy products with product listing, cart, and order management, wired up to a Spring Boot backend over REST.</p>
+          <div class="tags"><span>Spring Boot</span><span>AngularJS</span><span>MySQL</span><span>HTML/CSS</span></div>
+          <a class="link" href="https://github.com/RitheshRRithu" target="_blank" rel="noopener">View on GitHub &rarr;</a>
+        </div>
+        <div class="project">
+          <div class="ptype">Python / NLP</div>
+          <h3>Smart Summarize</h3>
+          <p>A text and document summarization tool built on spaCy, designed to handle large input documents and cut down manual reading time.</p>
+          <div class="tags"><span>Python</span><span>spaCy</span><span>CSV</span><span>HTML</span></div>
+          <a class="link" href="https://github.com/RitheshRRithu" target="_blank" rel="noopener">View on GitHub &rarr;</a>
+        </div>
+        <div class="project">
+          <div class="ptype">Java Backend</div>
+          <h3>Fishery Management System</h3>
+          <p>An application for fishers to log and manage fish-catch and inventory data, backed by a relational schema I designed in Oracle SQL.</p>
+          <div class="tags"><span>Java</span><span>Oracle SQL</span><span>HTML/CSS</span></div>
+          <a class="link" href="https://github.com/RitheshRRithu" target="_blank" rel="noopener">View on GitHub &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+ 
+  <section id="education">
+    <div class="wrap">
+      <div class="section-head reveal"><span class="num">05</span><h2>Education &amp; Certifications</h2><span class="rule"></span></div>
+      <div class="two-col reveal">
+        <div>
+          <div class="edu-item">
+            <h4>B.E. — Computer Science &amp; Engineering</h4>
+            <div class="when">Aug 2020 – Aug 2023</div>
+            <div class="co">Sahyadri College of Engineering and Management, Karnataka</div>
+          </div>
+          <div class="edu-item">
+            <h4>Diploma — Computer Science &amp; Engineering</h4>
+            <div class="when">Aug 2016 – Aug 2020</div>
+            <div class="co">Vivekananda Polytechnic, Puttur, Karnataka</div>
+          </div>
+        </div>
+        <ul class="cert-list">
+          <li>Java Programming — NIIT <span class="yr">2020</span></li>
+          <li>Java Data Structures &amp; Algorithms — Udemy <span class="yr">2024</span></li>
+          <li>Amazon Web Services (AWS) — Udemy <span class="yr">2024</span></li>
+          <li>Associate Java Programming — Udemy <span class="yr">2024</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+ 
+  <section id="beyond">
+    <div class="wrap">
+      <div class="section-head reveal"><span class="num">06</span><h2>Beyond the Code</h2><span class="rule"></span></div>
+      <div class="beyond reveal">
+        <span>&#127918; Video Games</span>
+        <span>&#127951; Cricket</span>
+        <span>&#127925; Music</span>
+        <span>&#9992;&#65039; Travelling</span>
+      </div>
+    </div>
+  </section>
+ 
+  <section id="contact">
+    <div class="wrap">
+      <div class="contact-card reveal">
+        <div>
+          <h2>Let's build something.</h2>
+          <p>Open to Junior Java Developer roles — remote, hybrid, or based in Kolkata. Feel free to reach out directly.</p>
+          <a class="btn-primary" href="mailto:ritheshrrithu@gmail.com">Email Me</a>
+        </div>
+        <div class="contact-links">
+          <a href="mailto:ritheshrrithu@gmail.com"><span class="lbl">Email</span> ritheshrrithu@gmail.com</a>
+          <a href="tel:+918197060123"><span class="lbl">Phone</span> +91 81970 60123</a>
+          <a href="https://www.linkedin.com/in/rithesh-r-9838b919a/" target="_blank" rel="noopener"><span class="lbl">LinkedIn</span> /in/rithesh-r-9838b919a</a>
+          <a href="https://github.com/RitheshRRithu" target="_blank" rel="noopener"><span class="lbl">GitHub</span> /RitheshRRithu</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+ 
+<footer>
+  <div class="wrap">Designed &amp; built by Rithesh R &middot; <a href="Rithesh_R_Resume.pdf" download>Download Resume (PDF)</a></div>
+</footer>
+ 
+<script>
+  // Terminal typing sequence
+  const termBody = document.getElementById('termBody');
+  const lines = [
+    { type: 'cmd', text: 'whoami' },
+    { type: 'out', text: 'Rithesh R — Junior Java Developer' },
+    { type: 'cmd', text: 'cat status.txt' },
+    { type: 'out', text: 'Open to Remote / Hybrid / Kolkata\nAvailable within 30 days' },
+    { type: 'cmd', text: 'stack --list' },
+    { type: 'out', text: 'Java · Spring Boot · Angular · MySQL · AWS' },
+  ];
+ 
+  function escapeHtml(s){
+    return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  }
+ 
+  async function typeLine(el, text, speed){
+    for(let i=0;i<=text.length;i++){
+      el.textContent = text.slice(0,i);
+      await new Promise(r=>setTimeout(r, speed));
+    }
+  }
+ 
+  async function runTerminal(){
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+      termBody.innerHTML = lines.map(l => l.type === 'cmd'
+        ? `<p class="line"><span class="prompt">$</span> <span class="path">${escapeHtml(l.text)}</span></p>`
+        : `<p class="line out">${escapeHtml(l.text).replace(/\n/g,'<br>')}</p>`
+      ).join('');
+      return;
+    }
+    for (const l of lines){
+      const p = document.createElement('p');
+      p.className = 'line';
+      termBody.appendChild(p);
+      if (l.type === 'cmd'){
+        p.innerHTML = '<span class="prompt">$</span> ';
+        const span = document.createElement('span');
+        span.className = 'path';
+        p.appendChild(span);
+        const caret = document.createElement('span');
+        caret.className = 'caret';
+        p.appendChild(caret);
+        await typeLine(span, l.text, 38);
+        caret.remove();
+        await new Promise(r=>setTimeout(r, 180));
+      } else {
+        p.classList.add('out');
+        p.style.whiteSpace = 'pre-wrap';
+        p.textContent = l.text;
+        await new Promise(r=>setTimeout(r, 320));
+      }
+    }
+  }
+  runTerminal();
+ 
+  // Scroll reveal (progressive enhancement — content is visible by default;
+  // this class only activates the hide/reveal behavior once JS confirms it can run it)
+  document.documentElement.classList.add('js-ready');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+ 
+</body>
+</html>
+ 
